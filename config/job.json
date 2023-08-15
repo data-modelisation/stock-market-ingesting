@@ -1,0 +1,30 @@
+{
+    "source_format": "CSV",
+    "write_disposition": "WRITE_TRUNCATE",
+    "ignore_unknown_values": true,
+    "partitioning_type": "MONTH",
+    "partitioning_field": "timestamp",
+    "skip_leading_rows": 1,
+    "schema": [
+        {
+            "name": "timestamp",
+            "type": "TIMESTAMP"
+        },
+        {
+            "name": "open",
+            "type": "FLOAT"
+        },
+        {
+            "name": "high",
+            "type": "FLOAT"
+        },
+        {
+            "name": "low",
+            "type": "FLOAT"
+        },
+        {
+            "name": "close",
+            "type": "FLOAT"
+        }
+    ]
+}

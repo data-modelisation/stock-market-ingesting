@@ -1,0 +1,5 @@
+{
+    "url": "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY" ,
+    "apikey": "F0J40XC9GCT6Z8IB",
+    "datatype": "csv"
+}

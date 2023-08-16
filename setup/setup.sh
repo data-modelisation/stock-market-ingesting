@@ -6,11 +6,11 @@ source .env
 SVC_PRINCIPAL=serviceAccount:${SERVICE_ACCOUNT_EMAIL}
 
 # Create bucket
-gsutil ls gs://$BUCKET || gsutil mb -l $REGION gs://$BUCKET
-echo "Bucket '$BUCKET' has been successfully created"
+gsutil ls gs://$BUCKET_NAME || gsutil mb -l $REGION gs://$BUCKET_NAME
+echo "Bucket '$BUCKET_NAME' has been successfully created"
 #  enable uniform bucket-level access on a bucket
 # it enforces a more uniform and consistent access control model
-gsutil uniformbucketlevelaccess set on gs://$BUCKET
+gsutil uniformbucketlevelaccess set on gs://$BUCKET_NAME
 
 # Create a new service account
 gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME \
@@ -18,14 +18,16 @@ gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME \
     --description="description of the market data ingest"
 
 # Add rights for account :
-
 # - make the service account the admin of the bucket
 # - it can read/write/list/delete etc. on only this bucket
-gsutil iam ch ${SVC_PRINCIPAL}:roles/storage.admin gs://$BUCKET
+gsutil iam ch ${SVC_PRINCIPAL}:roles/storage.admin gs://$BUCKET_NAME
 
 # - ability to create/delete partitions etc in BigQuery table
-bq --project_id=${PROJECT_ID} query --nouse_legacy_sql \
-  "GRANT \`roles/bigquery.dataOwner\` ON $DATASET  TO '$SVC_PRINCIPAL' "
+# bq --project_id=${PROJECT_ID} query --nouse_legacy_sql \
+#   "GRANT \`roles/bigquery.dataOwner\` ON $DATASET  TO '$SVC_PRINCIPAL' "
+gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+  --member ${SVC_PRINCIPAL} \
+  --role roles/bigquery.dataOwner
 
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
   --member ${SVC_PRINCIPAL} \

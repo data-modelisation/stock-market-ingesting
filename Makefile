@@ -4,6 +4,8 @@ PYTHON = python3
 
 .PHONY: init setup install clean
 
+permissions:
+	chmod +x gcp_project/*.sh 
 init:
 	./gcp_project/init.sh
 

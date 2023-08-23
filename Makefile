@@ -14,8 +14,8 @@ install:
 	$(PYTHON) -m venv venv
 	. venv/bin/activate; pip install -r requirements.txt
 
-clenup:  nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn 
-	./gcp_project/clenup.sh
+cleanup:   
+	./gcp_project/cleanup.sh
 
 clean-cache:
 	rm -rf venv __pycache__

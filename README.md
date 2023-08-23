@@ -50,7 +50,7 @@ Update the `config/job.json` and `config/job.json` file with your API credential
 
 Run the data ingestion script:
 ```bash
-make run-ingest symbol=<COMPANY_VALUE> 
+make run-ingest symbol=<The name of the equity of your choice> 
 ```
 
 This will fetch the market data from the API and ingest it into your specified BigQuery dataset.

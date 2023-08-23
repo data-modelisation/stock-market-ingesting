@@ -8,7 +8,7 @@
     "schema": [
         {
             "name": "timestamp",
-            "type": "TIMESTAMP"
+            "type": "DATE"
         },
         {
             "name": "open",
@@ -25,6 +25,14 @@
         {
             "name": "close",
             "type": "FLOAT"
+        },        
+        {
+            "name": "volume",
+            "type": "FLOAT"
+        },
+        {
+            "name": "symbol",
+            "type": "STRING"
         }
     ]
 }

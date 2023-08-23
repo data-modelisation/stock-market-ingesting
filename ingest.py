@@ -17,7 +17,7 @@ from urllib.parse import urlencode, urlunparse
 import sys
 
 def get_bq_load_config():
-    with open('job_config.json') as config_file: 
+    with open('config/job.json') as config_file: 
         config = json.load(config_file)    
 
     load_config = bigquery.LoadJobConfig()
@@ -52,7 +52,7 @@ def bqload(gcsfile, symbol):
     return table_ref, load_job.output_rows
 
 
-def upload(csvfile, bucketname, blobname):
+def upload(csvfile, blobname):
     """
     Uploads the CSV file into the bucket with the given blobname
     """
@@ -155,9 +155,7 @@ if __name__ == '__main__':
         else:
             logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 
-        #tableref, numrows = ingest(args.symbol)
-        tempdir = tempfile.mkdtemp(prefix='ingest_market_data')
-        data_csv = download(args.symbol, tempdir)
+        tableref, numrows = ingest(args.symbol)
 
         #logging.info('Success ... ingested {} rows to {}'.format(numrows, tableref))
     except Exception as e:

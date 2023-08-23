@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit immediately if any command fails
+set -o errexit
+
 # Load variables from .env file
 source .env
 

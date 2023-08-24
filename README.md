@@ -33,6 +33,8 @@ Before you begin, make sure you have the following:
     ```bash
     make build
     ```
+This command install the required Python packages and create GCP ressources for project. 
+
 
 ### Usage
 Update the `config/job.json` and `config/job.json` file with your API credentials and BigQuery configuration.

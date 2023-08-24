@@ -9,21 +9,21 @@ The Market Data Ingestion project focuses on fetching market data from a specifi
 
 Key Aspects of the Project:
 
-Data Ingestion: The project involves setting up a pipeline to fetch market data from a designated API source. This data includes information such as stock prices, trading volumes, and other relevant financial metrics.
+_Data Ingestion_: The project involves setting up a pipeline to fetch market data from a designated API source. This data includes information such as stock prices, trading volumes, and other relevant financial metrics.
 
-Google BigQuery Integration: The collected market data is stored in Google BigQuery, a powerful cloud-based data warehouse. This integration allows for efficient storage, organization, and querying of large datasets.
+_Google BigQuery Integration_: The collected market data is stored in Google BigQuery, a powerful cloud-based data warehouse. This integration allows for efficient storage, organization, and querying of large datasets.
 
-Configuration Management: The project provides configuration files where API access credentials, BigQuery project details, and data loading settings can be customized based on specific requirements.
+_Configuration Management_: The project provides configuration files where API access credentials, BigQuery project details, and data loading settings can be customized based on specific requirements.
 
-Automation: The project is designed to automate the data ingestion process. With the appropriate configuration, the system can fetch and load data periodically without manual intervention.
+_Automation_: The project is designed to automate the data ingestion process. With the appropriate configuration, the system can fetch and load data periodically without manual intervention.
 
-Data Analysis: While the project itself does not perform extensive data analysis, the stored data in BigQuery becomes accessible for advanced querying and analysis. Users can derive insights, trends, and patterns from the data.
+_Data Analysis_: While the project itself does not perform extensive data analysis, the stored data in BigQuery becomes accessible for advanced querying and analysis. Users can derive insights, trends, and patterns from the data.
 
-Modularity: The project is structured with modularity in mind, making it easier to extend or adapt for different data sources, APIs, and analysis needs.
+_Modularity_: The project is structured with modularity in mind, making it easier to extend or adapt for different data sources, APIs, and analysis needs.
 
-Usage: Users can execute the project scripts to initiate data ingestion and storage processes. This provides a streamlined approach for managing and handling financial market data.
+_Usage_: Users can execute the project scripts to initiate data ingestion and storage processes. This provides a streamlined approach for managing and handling financial market data.
 
-Customization: The project's configuration files and scripts can be tailored to suit specific API endpoints, data formats, and BigQuery datasets.
+_Customization_: The project's configuration files and scripts can be tailored to suit specific API endpoints, data formats, and BigQuery datasets.
 
 ## Getting Started
 

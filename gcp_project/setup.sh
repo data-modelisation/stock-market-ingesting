@@ -36,7 +36,6 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
   --member ${SVC_PRINCIPAL} \
   --role roles/bigquery.jobUser
 
-# - make sure the sevice account can invoke cloud functions
-gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-  --member ${SVC_PRINCIPAL} \
-  --role roles/run.invoker
+# Generate credentials for service account
+gcloud iam service-accounts keys create ./config/account.json \
+  --iam-account=${SERVICE_ACCOUNT_EMAIL}

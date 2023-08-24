@@ -29,21 +29,10 @@ Before you begin, make sure you have the following:
     ```bash
     cd market-data-ingestion
     ```
-3. Install the required Python packages using pip:
+3. Build project:
     ```bash
-    make intall
+    make build
     ```
-
-4. Put current configuration  file .env 
-    ```bash
-    make init
-    ```
-
-5. Create bucket and service account as indicated in .env
-    ```bash
-    make setup
-    ```
-
 
 ### Usage
 Update the `config/job.json` and `config/job.json` file with your API credentials and BigQuery configuration.

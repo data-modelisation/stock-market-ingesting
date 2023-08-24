@@ -4,6 +4,8 @@ PYTHON = python3
 
 .PHONY: init setup install clean
 
+build:
+
 permissions:
 	chmod +x gcp_project/*.sh 
 init:
@@ -15,6 +17,12 @@ setup:
 install:
 	$(PYTHON) -m venv venv
 	. venv/bin/activate; pip install -r requirements.txt
+
+build:
+	$(MAKE) permissions
+	$(MAKE) install
+	$(MAKE) init
+	$(MAKE) setup
 
 cleanup:   
 	./gcp_project/cleanup.sh

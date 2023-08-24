@@ -3,6 +3,7 @@
 # Exit immediately if any command fails
 set -o errexit
 
+source  gcp_project/init.sh
 # Delete all elements
 
 # Remove the binding for service account from Cloud Functions invoker role

@@ -3,6 +3,7 @@
 # Exit immediately if any command fails
 set -o errexit
 
+source  gcp_project/init.sh 
 # Create bucket
 gsutil ls gs://${BUCKET_NAME} || gsutil mb -l $REGION gs://${BUCKET_NAME}
 echo "Bucket '${BUCKET_NAME}' has been successfully created"

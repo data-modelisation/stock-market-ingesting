@@ -39,7 +39,7 @@ def bqload(gcsfile, symbol):
     """
     load_dotenv()
     load_config = get_bq_load_config()
-    client = bigquery.Client.from_service_account_json("./config/account.json")
+    client = bigquery.Client.from_service_account_json("config/account.json")
     #client = bigquery.Client()
 
     table_ref = client.dataset(os.getenv("DATASET")).table('market_data_raw_{}'.format(symbol))

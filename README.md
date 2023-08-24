@@ -1,12 +1,29 @@
 # Market Data Ingestion and BigQuery Integration
+![alt Application Cover](images/cover.jpg)
 
-Welcome to the Market Data Ingestion and BigQuery Integration project! 
-This project aims to fetch market data from an API and then store it in Google BigQuery for further analysis and processing.
+
 
 ## Introduction
 
-In this project, developed soulution fetches market data from a specified API and stores it into a Google BigQuery dataset. 
-This allows for easy analysis and querying of the market data using SQL.
+The Market Data Ingestion project focuses on fetching market data from a specified API and storing it in Google BigQuery. This project is designed to provide an automated solution for collecting and analyzing financial market data for further insights and analysis.
+
+Key Aspects of the Project:
+
+Data Ingestion: The project involves setting up a pipeline to fetch market data from a designated API source. This data includes information such as stock prices, trading volumes, and other relevant financial metrics.
+
+Google BigQuery Integration: The collected market data is stored in Google BigQuery, a powerful cloud-based data warehouse. This integration allows for efficient storage, organization, and querying of large datasets.
+
+Configuration Management: The project provides configuration files where API access credentials, BigQuery project details, and data loading settings can be customized based on specific requirements.
+
+Automation: The project is designed to automate the data ingestion process. With the appropriate configuration, the system can fetch and load data periodically without manual intervention.
+
+Data Analysis: While the project itself does not perform extensive data analysis, the stored data in BigQuery becomes accessible for advanced querying and analysis. Users can derive insights, trends, and patterns from the data.
+
+Modularity: The project is structured with modularity in mind, making it easier to extend or adapt for different data sources, APIs, and analysis needs.
+
+Usage: Users can execute the project scripts to initiate data ingestion and storage processes. This provides a streamlined approach for managing and handling financial market data.
+
+Customization: The project's configuration files and scripts can be tailored to suit specific API endpoints, data formats, and BigQuery datasets.
 
 ## Getting Started
 
@@ -124,12 +141,11 @@ Waiting on bqjob_r49cd60bd6a753afa_0000018a296f7150_1 ... (0s) Current status: D
 
 Here are a few interpretations of the results:
 
-"Apple (AAPL)" has the highest average close of $178.98, which might indicate a relatively strong stock performance in terms of price.
+* "Apple (AAPL)" has the highest average close of $178.98, which might indicate a relatively strong stock performance in terms of price.
 
-Among the three companies, "Google (GOOG)" has the highest price change percentage of 0.28%, suggesting the highest relative increase in stock price over the analyzed period.
+* Among the three companies, "Google (GOOG)" has the highest price change percentage of 0.28%, suggesting the highest relative increase in stock price over the analyzed period.
 
-"IBM" has the lowest price volatility of 6.83%, indicating a relatively stable stock price movement compared to the other companies.
-
+* "IBM" has the lowest price volatility of 6.83%, indicating a relatively stable stock price movement compared to the other companies.
 
 
 ### Contributing

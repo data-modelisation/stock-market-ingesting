@@ -3,7 +3,6 @@
 # Exit immediately if any command fails
 set -o errexit
 
-source  gcp_project/init.sh 
 # Create bucket
 gsutil ls gs://${BUCKET_NAME} || gsutil mb -l $REGION gs://${BUCKET_NAME}
 echo "Bucket '${BUCKET_NAME}' has been successfully created"
@@ -35,3 +34,6 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} \
 # Generate credentials for service account
 gcloud iam service-accounts keys create ./config/account.json \
   --iam-account=${SERVICE_ACCOUNT_EMAIL}
+
+# Create Dataset
+bq mk --dataset --project_id=${PROJECT_ID} ${DATASET}

@@ -2,8 +2,6 @@
 # Exit immediately if any command fails
 set -o errexit
 
-source  gcp_project/init.sh
-
 # Construct the SQL query
 query="SELECT * FROM \`${PROJECT_ID}.${DATASET}.market_data_raw*\` LIMIT 10;"
 

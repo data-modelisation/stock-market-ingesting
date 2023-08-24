@@ -8,8 +8,6 @@ build:
 
 permissions:
 	chmod +x gcp_project/*.sh 
-init:
-	./gcp_project/init.sh
 
 setup:
 	./gcp_project/setup.sh
@@ -21,7 +19,6 @@ install:
 build:
 	$(MAKE) permissions
 	$(MAKE) install
-	$(MAKE) init
 	$(MAKE) setup
 
 cleanup:   
@@ -39,9 +36,10 @@ run-query:
 # Help target
 help:
 	@echo "Available commands:"
-	@echo "  make init         - Run initialization script for generating file .env"
 	@echo "  make setup        - Run setup script for creating bucket and account"
 	@echo "  make install      - Create virtual environment and install dependencies"
+	@echo "  make build        - Set all configurations"
 	@echo "  clean-cache       - Remove cache of the project"
 	@echo "  make cleanup      - Remove bucket and account"
-	@echo "  make run-ingest   - Run ingest.py script with arguments for loading data (usage: make run-ingest symbol=ibm)"
+	@echo "  make run-ingest   - Load data using script ingest.py (usage: make run-ingest symbol=ibm)"
+	@echo "  make run-query    - Execute Big Query queries for stock market analysis"

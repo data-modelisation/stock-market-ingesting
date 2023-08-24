@@ -29,7 +29,11 @@ Before you begin, make sure you have the following:
     ```bash
     cd market-data-ingestion
     ```
-3. Build project:
+3. Initialize all the environment variables 
+    ```bash
+    source gcp_project/init.sh
+    ```
+4. Build project:
     ```bash
     make build
     ```

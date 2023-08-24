@@ -33,6 +33,16 @@ run-ingest:
 run-query:
 	./gcp_project/query.sh
 
+run-test:
+	@echo "Load stock market data for IBM"
+	$(MAKE)	run-ingest symbol=ibm
+	@echo "Load stock market data for GOOGLE"
+	$(MAKE)	run-ingest symbol=goog
+	@echo "Load stock market data for APPLE"
+	$(MAKE)	run-ingest symbol=aapl
+	@echo "Analyse of the stock market"
+	$(MAKE)	run-query
+
 # Help target
 help:
 	@echo "Available commands:"
@@ -43,3 +53,4 @@ help:
 	@echo "  make cleanup      - Remove bucket and account"
 	@echo "  make run-ingest   - Load data using script ingest.py (usage: make run-ingest symbol=ibm)"
 	@echo "  make run-query    - Execute Big Query queries for stock market analysis"
+	@echo "  make run-test     - Load stock market data for 3 companies and show their analysis"

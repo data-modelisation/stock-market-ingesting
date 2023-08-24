@@ -3,7 +3,6 @@ import gzip
 import shutil
 import logging
 import os.path
-from dotenv import load_dotenv
 from urllib.request import urlopen
 import zipfile
 import datetime
@@ -37,12 +36,11 @@ def bqload(gcsfile, symbol):
     """
     Loads the CSV file in GCS into BigQuery, replacing the existing data in that partition
     """
-    load_dotenv()
     load_config = get_bq_load_config()
     client = bigquery.Client.from_service_account_json("config/account.json")
     #client = bigquery.Client()
 
-    table_ref = client.dataset(os.getenv("DATASET")).table('market_data_raw_{}'.format(symbol))
+    table_ref = client.dataset(os.environ.get("DATASET")).table('market_data_raw_{}'.format(symbol))
    
     load_job = client.load_table_from_uri(gcsfile, table_ref, job_config=load_config)
     load_job.result()  # waits for table load to complete
@@ -57,8 +55,7 @@ def upload(csvfile, blobname):
     """
     Uploads the CSV file into the bucket with the given blobname
     """
-    load_dotenv()
-    bucketname = os.getenv("BUCKET_NAME")
+    bucketname = os.environ.get("BUCKET_NAME")
     
     client = storage.Client()
     bucket = client.get_bucket(bucketname)

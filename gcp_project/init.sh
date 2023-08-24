@@ -7,13 +7,13 @@ REGION=us-central1
 SERVICE_NAME=ingest-market-data
 SERVICE_ACCOUNT_NAME=svc-market-ingest
 SERVICE_ACCOUNT_EMAIL=${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
-#SVC_PRINCIPAL=serviceAccount:${SERVICE_ACCOUNT_NAME}@${PROJECT_ID}.iam.gserviceaccount.com
 
-# Create or overwrite the config.env file with the configuration
-echo "PROJECT_ID=$PROJECT_ID" >> .env
-echo "BUCKET_NAME=$BUCKET" >> .env
-echo "SERVICE_NAME=$SERVICE_NAME" >> .env
-echo "DATASET=$DATASET" >> .env
-echo "SERVICE_ACCOUNT_NAME=$SERVICE_ACCOUNT_NAME" >> .env
-echo "SERVICE_ACCOUNT_EMAIL=$SERVICE_ACCOUNT_EMAIL" >> .env
-echo "REGION=$REGION" >> .env
+
+export PROJECT_ID=$PROJECT_ID
+export BUCKET_NAME=$BUCKET
+export SERVICE_NAME=$SERVICE_NAME
+export DATASET=$DATASET
+export SERVICE_ACCOUNT_NAME=$SERVICE_ACCOUNT_NAME
+export SERVICE_ACCOUNT_EMAIL=$SERVICE_ACCOUNT_EMAIL
+export REGION=$REGION
+export SVC_PRINCIPAL=$SVC_PRINCIPAL

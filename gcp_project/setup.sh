@@ -3,11 +3,6 @@
 # Exit immediately if any command fails
 set -o errexit
 
-# Load variables from .env file
-source .env
-
-SVC_PRINCIPAL=serviceAccount:${SERVICE_ACCOUNT_EMAIL}
-
 # Create bucket
 gsutil ls gs://$BUCKET_NAME || gsutil mb -l $REGION gs://$BUCKET_NAME
 echo "Bucket '$BUCKET_NAME' has been successfully created"
@@ -23,17 +18,17 @@ gcloud iam service-accounts create $SERVICE_ACCOUNT_NAME \
 # Add rights for account :
 # - make the service account the admin of the bucket
 # - it can read/write/list/delete etc. on only this bucket
-gsutil iam ch ${SVC_PRINCIPAL}:roles/storage.admin gs://$BUCKET_NAME
+gsutil iam ch serviceAccount:${SERVICE_ACCOUNT_EMAIL}:roles/storage.admin gs://$BUCKET_NAME
 
 # - ability to create/delete partitions etc in BigQuery table
 # bq --project_id=${PROJECT_ID} query --nouse_legacy_sql \
 #   "GRANT \`roles/bigquery.dataOwner\` ON $DATASET  TO '$SVC_PRINCIPAL' "
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-  --member ${SVC_PRINCIPAL} \
+  --member serviceAccount:${SERVICE_ACCOUNT_EMAIL} \
   --role roles/bigquery.dataOwner
 
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-  --member ${SVC_PRINCIPAL} \
+  --member serviceAccount:${SERVICE_ACCOUNT_EMAIL} \
   --role roles/bigquery.jobUser
 
 # Generate credentials for service account

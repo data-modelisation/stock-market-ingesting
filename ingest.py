@@ -15,6 +15,10 @@ import json
 from urllib.parse import urlencode, urlunparse
 import sys
 
+"""
+ Retrieve and construct a BigQuery confiration file.
+ Return: A configured LoadJobConfig object for data loading.
+"""
 def get_bq_load_config():
     with open('config/job.json') as config_file: 
         config = json.load(config_file)    
@@ -77,7 +81,7 @@ def get_config(path: str):
 
 def download(symbol: str, destdir: str):
     """
-    Downloads on-time performance data and returns local filename
+    Downloads the market stock data and returns local filename
     """
     logging.info('Requesting data for {}-*'.format(symbol))
 
@@ -100,9 +104,8 @@ def download(symbol: str, destdir: str):
         response = urlopen(url)
         fp.write(response.read())
 
-    # add column symbol 
-
-    # After writing the file, you can add the "symbol" value to each row
+    # Add column symbol 
+    # Add the "symbol" value to each row
     with open(input_filename, "r") as input_file, open(output_filename, "w", newline="") as output_file:
         csv_reader = csv.reader(input_file)
         csv_writer = csv.writer(output_file)
@@ -123,9 +126,8 @@ def download(symbol: str, destdir: str):
 
 def ingest(symbol):
     '''
-   ingest flights data from BTS website to Google Cloud Storage
+   Ingest stock market data from API to Google Cloud Storage
    return table, numrows on success.
-   raises exception if this data is not on BTS website
    '''
     tempdir = tempfile.mkdtemp(prefix='ingest_market_data')
     try:
@@ -142,7 +144,7 @@ def ingest(symbol):
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='ingest data from API to Google Cloud Storage')
+    parser = argparse.ArgumentParser(description='Ingest data from API to Google Cloud Storage')
     parser.add_argument('--symbol', help='Name of market item', required=True)
     parser.add_argument('--debug', dest='debug', action='store_true', help='Specify if you want debug messages')
 

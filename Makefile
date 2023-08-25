@@ -1,8 +1,6 @@
-# Validate Makefile: include config.env
-# Variables
 PYTHON = python3
 
-.PHONY: init setup install clean
+.PHONY: init setup install cleanup clean-cache run-ingest run-query run-test help
 
 build:
 

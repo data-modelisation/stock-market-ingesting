@@ -1,13 +1,11 @@
 # Market Data Ingestion and BigQuery Integration
 ![alt Application Cover](images/cover.jpg)
 
-
-
 ## Introduction
 
 The Market Data Ingestion project focuses on fetching market data from a specified API and storing it in Google BigQuery. This project is designed to provide an automated solution for collecting and analyzing financial market data for further insights and analysis.
 
-Key Aspects of the Project:
+## Key Aspects of the Project
 
 _Data Ingestion_: The project involves setting up a pipeline to fetch market data from a designated API source. This data includes information such as stock prices, trading volumes, and other relevant financial metrics.
 
@@ -56,6 +54,11 @@ Before you begin, make sure you have the following:
     ```
 This command install the required Python packages and create GCP ressources for project. 
 
+For uninstallation of the project, execute the following command :
+```bash
+make cleanup
+```
+This command remove all the GCP resources that were created during the project's setup. 
 
 ### Usage
 Update the `config/job.json` and `config/job.json` file with your API credentials and BigQuery configuration.
